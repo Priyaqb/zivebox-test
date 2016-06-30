@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="Your App Name">
+    <Require feature="rpc"/>
+    <Require feature="views"/>
+  </ModulePrefs>
+  <Content type="html">
+    <![CDATA[
+      <html>
+      <head>
+      <script src="https://apis.google.com/js/platform.js?onload=onLoadCallback" async defer></script>
+      </head>
+      <body>
+          <div id="placeholder-div"></div>
+          <script>
+            //gapi.hangout.render('placeholder-div', { 'render': 'createhangout' });
+            window.onLoadCallback = function(){
+             gapi.hangout.render('placeholder-div2', {
+                'render': 'createhangout',
+                'initial_apps': [{'app_id' : '316893873539', 'app_type' : 'ROOM_APP' }],
+                'widget_size': 72
+              });
+             gapi.hangout.onApiReady.add(function(eventObj) {
+                alert("done")
+              });
+            }
+          </script>
+      </body>
+      </html>
+    ]]>
+  </Content>
+</Module>
